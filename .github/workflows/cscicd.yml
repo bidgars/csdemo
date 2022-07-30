@@ -1,4 +1,7 @@
-name: CS Challenge
+# Author: Sunil Bidgar
+# Purpose: Solution to the challenge
+
+name: CSChallenge
 
 on:
   push:
@@ -34,8 +37,14 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml -DVERSION_TAG_CMD=${{ steps.gettags.outputs.new_tag }}
 
-    - name: Publish to GitHub Packages Apache Maven
+    - name: Publish to GitHub Packages
       run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml -DVERSION_TAG_CMD=${{ steps.gettags.outputs.new_tag }}
       env:
         GITHUB_TOKEN: ${{ github.token }}
 
+    - name: Create a Release
+      uses: elgohr/Github-Release-Action@v4
+      env:
+        GITHUB_TOKEN: ${{ secrets.CS_TOKEN }}
+      with:
+        title: CSDemo ${{ steps.gettags.outputs.new_tag }} released
