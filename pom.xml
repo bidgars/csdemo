@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>cs.demo</groupId>
 	<artifactId>csdemo</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>${VERSION_TAG_CMD}</version>
 	<name>csdemo</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
