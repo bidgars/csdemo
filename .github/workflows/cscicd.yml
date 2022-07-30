@@ -1,0 +1,16 @@
+name: CS Challenge
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Bump version and display tag
+      uses: anothrNick/github-tag-action@1.36.0
+
