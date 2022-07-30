@@ -12,12 +12,12 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Bump version and display tag
-      uses: anothrNick/github-tag-action@1.36.0
       id: gettags
+      uses: anothrNick/github-tag-action@1.36.0
       env:
         GITHUB_TOKEN: ${{ secrets.CS_TOKEN }}
         WITH_V: true
         DRY_RUN: true
 
-    - run: echo TAG generated is ${{ steps.gettags.outputs.stdout }}
+    - run: echo TAG generated is ${{ steps.gettags.outputs.new_tag }}
     
