@@ -19,7 +19,6 @@ jobs:
       id: gettags
       uses: anothrNick/github-tag-action@1.36.0
       env:
-        GITHUB_TOKEN: ${{ secrets.CS_TOKEN }}
         DEFAULT_BUMP: patch
         WITH_V: true
         DRY_RUN: true
@@ -48,7 +47,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.CS_TOKEN }}
       with:
-        title: CSDemo ${{ steps.gettags.outputs.new_tag }} released
+        title: ${{ steps.gettags.outputs.new_tag }}
 
     - name: Tag Next Version
       uses: anothrNick/github-tag-action@1.36.0
